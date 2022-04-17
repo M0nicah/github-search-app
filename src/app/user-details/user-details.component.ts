@@ -25,9 +25,9 @@ export class UserDetailsComponent implements OnInit {
     })
 
     this.GithubService.getUser(this.username).subscribe({
-      complete: () => {console.log("done!")},
+      complete: () => {console.log("data fetch successful!")},
       error: () => {
-        //if the username is wrong or cannot be found in all github:
+        //if the username is wrong:
         alert("User not found!")
         this.route.navigate(['search'])
       },
