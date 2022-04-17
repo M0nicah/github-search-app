@@ -1,0 +1,8 @@
+<div class="container font flex">
+    <form [formGroup]="searchForm" (ngSubmit)="searchUser()" class=" justify-center items-center mx-auto mt-5">
+        <label for="Username" class="block font-bold mr-5 mt-3">Enter Username:</label>
+        <input type="text" class="border-2 border-gray-300 p-2 w-96 rounded-md mt-2" placeholder="@Username" formControlName="username" name="" id="username" required>
+
+        <button type="submit" [disabled]="!this.searchForm.valid" class="bg-green-400 text-green-700 p-2 rounded-md w-32 ml-3">Get User</button>
+    </form>
+</div>
