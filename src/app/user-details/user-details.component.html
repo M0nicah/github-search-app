@@ -1,8 +1,11 @@
-<div class="card mb-3">
+<div class="card mb-3 w-96 h-full rounded-xl shadow-2xl shadow-green-100 justify-center items-center flex">
     <img src="{{ UserDetails.avatar_url }}" class="card-img-top rounded-full w-48 h-48 " alt="profile_image">
-    <div class="card-body">
-      <h5 class="card-title">{{ UserDetails.login }} || {{  }}</h5>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    <div class="card-body border-t-2 border-green-100 w-full mt-3  text-center">
+      <h5 class="card-title">{{ UserDetails.login }} || {{ UserDetails.name }}</h5>
+      <p class="card-text py-1">{{ UserDetails.bio }}</p>
+      <p class="card-text py-1">Public Repositories: {{ UserDetails.public_repos }}</p>
+      <p class="card-text">{{ UserDetails.location }}</p>
+      <p class="card-text py-1">Followers: {{ UserDetails.followers }} || Following: {{ UserDetails.following }}</p>
+      <p class="card-text"><small class="text-muted">&copy; Monica Masae</small></p>
     </div>
 </div>
