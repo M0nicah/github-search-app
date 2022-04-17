@@ -5,13 +5,13 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class GithubService {
-  url : string = "https://api.github.com/users/Kayere"
+  url : string = "https://api.github.com/users/"
 
   constructor(private http : HttpClient) { }
 
   getUser(username: string){
     
-    this.http.get(this.url + username);
+    return this.http.get(this.url + username);
 
   }
 }
