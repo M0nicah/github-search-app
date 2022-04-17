@@ -8,4 +8,10 @@ export class GithubService {
   url : string = "https://api.github.com/users/Kayere"
 
   constructor(private http : HttpClient) { }
+
+  getUser(username: string){
+    
+    this.http.get(this.url + username);
+
+  }
 }

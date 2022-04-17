@@ -14,9 +14,9 @@ const routes: Routes = [
     component: SearchPageComponent
   },
   {
-    path: 'user/id',
+    path: 'user/:id',
     component: UserDetailsComponent
-  }
+  },
  
 ];
 
