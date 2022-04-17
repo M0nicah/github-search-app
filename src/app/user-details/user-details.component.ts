@@ -10,6 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class UserDetailsComponent implements OnInit {
 
   username!: string;
+  UserDetails: any;
   
   constructor(
     private active: ActivatedRoute,
@@ -30,7 +31,9 @@ export class UserDetailsComponent implements OnInit {
         alert("User not found!")
         this.route.navigate(['search'])
       },
-      next: () => {
+      next: (data: any = []) => {
+        this.UserDetails = data;
+        console.log(this.UserDetails);
 
       }
     })
