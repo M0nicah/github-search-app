@@ -44,7 +44,10 @@ export class UserDetailsComponent implements OnInit {
         console.log(this.UserDetails);
 
       }
-    });
+    }),
+     
+    this.repos.getProfile()
+    this.repos = this.UserDetails.repos
 
   }
 

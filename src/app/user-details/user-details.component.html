@@ -1,5 +1,5 @@
 <div
-  class="card mb-3 w-96 h-full rounded-xl shadow-2xl shadow-purple-100 justify-center items-center flex"
+  class="card mb-3 w-96 h-full rounded-xl shadow-2xl shadow-purple-100 justify-center items-center flex mx-auto"
 >
   <img
     src="{{ UserDetails.avatar_url }}"
@@ -31,4 +31,15 @@
       <small class="text-muted">&copy; Monica Masae</small>
     </p>
   </div>
+</div>
+
+<div class="bg-purple-300">
+    <div *ngFor="let repo of repos" class="col-md-8">
+        <div class="card">
+            <h4>{{repo.html_url}}</h4>
+        </div>
+        <div class="card-footer">
+            <p>{{repo.created}}</p>
+        </div> 
+    </div>
 </div>
