@@ -13,7 +13,7 @@ import { Users } from '../users'
 })
 export class SearchPageComponent implements OnInit {
   searchForm!: FormGroup;
-  username!: string;
+  username!: any;
   repo!: any;
   // route: any;
 
@@ -28,10 +28,10 @@ export class SearchPageComponent implements OnInit {
   }
   searchUser() {
     this.username = this.searchForm.value.username;
-    this.route.navigate([`user/${this.username}`]);
+    this.route.navigate([`user/${this.username}`],{queryParams:{data: this.username}});
   }
-  getRepo(){
-    this.repo = this.searchForm.value.repos;
-    this.route.navigate([`user/${this.repo}`])
-  }
+  // getRepo(){
+  //   this.repo = this.searchForm.value.repos;
+  //   this.route.navigate([`user/${this.repo}`],{queryParams: {data: this.username }})
+  // }
 }

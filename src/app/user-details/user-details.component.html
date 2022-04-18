@@ -2,25 +2,25 @@
   class="card mb-3 mt-5 w-3/12 h-full rounded-xl shadow-2xl shadow-purple-100 justify-center items-center flex mx-auto"
 >
   <img
-    src="{{ UserDetails.avatar_url }}"
+    src="{{ newUser.avatar }}"
     class="card-img-top rounded-full border-2 border-purple-200 w-48 h-48"
     alt="profile_image"
   />
   <div class="card-body border-t-2 border-purple-100 w-full mt-3 text-center">
     <h5 class="card-title">
-      {{ UserDetails.login }} || {{ UserDetails.name }}
+      {{ newUser.name }}
     </h5>
-    <p class="card-text py-1">{{ UserDetails.bio }}</p>
+    <p class="card-text py-1">{{ newUser.bio }}</p>
     <p class="card-text py-1">
-      Public Repositories: {{ UserDetails.public_repos }}
+      <!-- Public Repositories: {{ newUser.public_repos }} -->
     </p>
-    <p class="card-text">{{ UserDetails.location }}</p>
+    <p class="card-text">{{ newUser.profile }}</p>
     <p class="card-text py-1">
-      Followers: {{ UserDetails.followers }} || Following:
-      {{ UserDetails.following }}
+      Followers: {{ newUser.followers }} || Following:
+      {{ newUser.following }}
     </p>
     <div>
-      <a href="{{ UserDetails.html_url }}"
+      <a href="{{ newUser.email }}"
         ><button
           class="card-text py-1 rounded-md w-48 border-2 border-purple-500 hover:bg-purple-300 hover:text-purple-600"
         >
@@ -29,7 +29,7 @@
       >
     </div>
 
-    <p class="card-text">Joined: {{ UserDetails.created_at | date }}</p>
+    <p class="card-text">Joined: {{ newUser.created_at | date }}</p>
     <p class="card-text">
       <small class="text-muted">&copy; Monica Masae</small>
     </p>

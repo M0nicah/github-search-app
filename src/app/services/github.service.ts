@@ -1,10 +1,10 @@
 import { Users } from './../users';
-import { UserDetailsComponent } from './../user-details/user-details.component';
+
 
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { firstValueFrom } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root',
@@ -16,18 +16,18 @@ export class GithubService {
   newUser: Users;
 
   constructor(private http: HttpClient) {
-    this.newUser = new Users('', '', '', 0, 0, '', '', '', '', '');
+    this.newUser = new Users('', '', '', 0, 0, '', '', '', '', '', new Date());
   }
 
   getUser(username: string) {
     let promise = new Promise((resolve, reject) => {
       this.http
         .get<any>(
-          `${this.url}${this.username}?access_token'=${environment.GITHUB_API_KEY}`
+          `${this.url}${username}?access_token'=${environment.GITHUB_API_KEY}`
         )
         .toPromise()
         .then(
-          (response: any) => {
+          (response) => {
             response = response!;
             this.newUser = new Users(
               (this.newUser.avatar = response.avatar_url),
@@ -39,14 +39,12 @@ export class GithubService {
               (this.newUser.blog = response.blog),
               (this.newUser.twitter = response.twitter_username),
               (this.newUser.email = response.email),
-              (this.newUser.profile = response.html_url)
+              (this.newUser.profile = response.html_url),
+              (this.newUser.created_at = response.created_at)
             );
             resolve(response);
           },
           (error: any) => {
-            error.status = 404
-              ? this['router'].navigate(['/**'])
-              : console.error(error);
             reject(error);
           }
         );

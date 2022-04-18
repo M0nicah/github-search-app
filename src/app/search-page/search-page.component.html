@@ -1,6 +1,6 @@
 <div class="container font flex h-screen justify-center items-center ">
   <form
-    [formGroup]="searchForm"
+  #searchForm = "ngForm"
     (ngSubmit)="searchUser()"
     class="bg-purple-100 p-5 rounded-xl"
   >
@@ -11,8 +11,8 @@
       type="text"
       class="border-2 border-gray-300 p-2 w-96 rounded-md mt-2"
       placeholder="@Username"
-      formControlName="username"
-      name=""
+      name="username"
+      [(ngModel)]="username"
       id="username"
       required
     />

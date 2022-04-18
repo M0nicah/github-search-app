@@ -10,6 +10,6 @@ export class Users {
     public twitter: string,
     public email: string,
     public profile: string,
-    
+    public created_at : Date,
   ) {}
 }
