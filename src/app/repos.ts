@@ -8,6 +8,7 @@ export class Repos {
     public avatar_url: string,
     public created_at: string,
     public updated_at: string,
-    public html_url: string
+    public html_url: string,
+    public repos_url: string
   ) {}
 }

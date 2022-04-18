@@ -18,7 +18,7 @@ export class SearchPageComponent implements OnInit {
   // route: any;
 
   constructor(private route: Router, public GithubService: GithubService) {
-    this.GithubService.getRepo('','')
+    this.GithubService.getRepo('',)
   }
 
   ngOnInit(): void {
