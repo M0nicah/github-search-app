@@ -15,6 +15,7 @@ export class UserDetailsComponent implements OnInit {
   UserDetails: any;
   repos!: any;
 
+
   constructor(
     private active: ActivatedRoute,
     private GithubService: GithubService,
@@ -23,11 +24,8 @@ export class UserDetailsComponent implements OnInit {
     this.active.params.subscribe((params) => {
       this.username = params['id'];
     });
-    this.active.params.subscribe((params) => {
-      this.repos = params['id'];
-    });
-
-    this.GithubService.getUser(this.UserDetails).subscribe({
+    
+    this.GithubService['getUser'](this.UserDetails).subscribe({
       complete: () => {
         console.log('data fetch successful!');
       },
@@ -39,22 +37,6 @@ export class UserDetailsComponent implements OnInit {
       next: (data: any = []) => {
         this.username = data;
         console.log(this.username);
-      },
-    });
-
-    this.GithubService.getRepo(this.repos).subscribe({
-      complete: (_data: any = []) => {
-        // this.repos = data;
-        // console.log(this.repos);
-      },
-      error: () => {
-        //if the repo is wrong:
-        alert('error: cant find repos');
-        this.route.navigate(['search']);
-      },
-      next: (data: any = []) => {
-        this.repos = data;
-        console.log(this.repos);
       },
     });
   }

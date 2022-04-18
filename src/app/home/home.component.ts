@@ -8,9 +8,7 @@ import { Repos } from '../repos';
 })
 export class HomeComponent implements OnInit {
   title = 'This is a simple Angular app that enables a user to search their favorite github user to see their work.';
-  repo: Repos[] =[
-    new Repos("bio","hi","","goodmorning","hi","hi","hi","")
-  ]
+  
 
   constructor() { }
 

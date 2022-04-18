@@ -3,7 +3,7 @@ import { GithubService } from './../services/github.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Repos } from '../repos';
+import { Users } from '../users'
 
 @Component({
   selector: 'app-search-page',
@@ -18,7 +18,7 @@ export class SearchPageComponent implements OnInit {
   // route: any;
 
   constructor(private route: Router, public GithubService: GithubService) {
-    // this.GithubService.getRepo('',)
+   
   }
 
   ngOnInit(): void {
