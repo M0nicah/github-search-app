@@ -3,6 +3,7 @@ import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SearchPageComponent } from './search-page/search-page.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
+import { Repos } from './repos';
 
 const routes: Routes = [
   {

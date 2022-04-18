@@ -1,6 +1,8 @@
+import { Repos } from './../repos';
 import { GithubService } from './../services/github.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-user-details',
@@ -8,9 +10,12 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./user-details.component.css'],
 })
 export class UserDetailsComponent implements OnInit {
+  @Input()
+  repo!: Repos;
 
   username!: string;
   UserDetails: any;
+  repos: any;
   
   constructor(
     private active: ActivatedRoute,
@@ -22,6 +27,9 @@ export class UserDetailsComponent implements OnInit {
     this.active.params.subscribe(params =>{
       this.username = params['id'];
       
+    })
+    this.active.params.subscribe(params =>{
+      this.repo = params['repo']
     })
 
     this.GithubService.getUser(this.username).subscribe({
@@ -36,7 +44,21 @@ export class UserDetailsComponent implements OnInit {
         console.log(this.UserDetails);
 
       }
-    })
+    });
+    // this.GithubService.getRepo(this.repos, this.username).subscribe({
+    //   complete: () => {console.log("data fetch successful!")},
+    //   error: () => {
+    //     // //if the username is wrong:
+    //     // alert(" not found!")
+    //     this.route.navigate(['search'])
+    //   },
+    //   next: (data: any = []) => {
+    //     this.UserDetails = data;
+    //     console.log(this.UserDetails.repos);
+
+    //   },
+    // });
+
   }
 
 
