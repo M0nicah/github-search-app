@@ -45,19 +45,6 @@ export class UserDetailsComponent implements OnInit {
 
       }
     });
-    // this.GithubService.getRepo(this.repos, this.username).subscribe({
-    //   complete: () => {console.log("data fetch successful!")},
-    //   error: () => {
-    //     // //if the username is wrong:
-    //     // alert(" not found!")
-    //     this.route.navigate(['search'])
-    //   },
-    //   next: (data: any = []) => {
-    //     this.UserDetails = data;
-    //     console.log(this.UserDetails.repos);
-
-    //   },
-    // });
 
   }
 
