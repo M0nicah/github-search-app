@@ -1,11 +1,23 @@
 <div class="card mb-3 w-96 h-full rounded-xl shadow-2xl shadow-green-100 justify-center items-center flex">
-    <img src="{{ UserDetails.avatar_url }}" class="card-img-top rounded-full w-48 h-48 " alt="profile_image">
+    <img src="{{ UserDetails.avatar_url }}" class="card-img-top rounded-full border-2 border-green-600 w-48 h-48 " alt="profile_image">
     <div class="card-body border-t-2 border-green-100 w-full mt-3  text-center">
       <h5 class="card-title">{{ UserDetails.login }} || {{ UserDetails.name }}</h5>
       <p class="card-text py-1">{{ UserDetails.bio }}</p>
       <p class="card-text py-1">Public Repositories: {{ UserDetails.public_repos }}</p>
       <p class="card-text">{{ UserDetails.location }}</p>
       <p class="card-text py-1">Followers: {{ UserDetails.followers }} || Following: {{ UserDetails.following }}</p>
+      <a href="{{ UserDetails.html_url }}"><button class="card-text py-1 rounded-md w-48 border-2  border-green-500 hover:bg-green-300 hover:text-gray-800">Visit Profile</button></a>
+      <p class="card-text">Joined: {{ UserDetails.created_at|date }}</p>
       <p class="card-text"><small class="text-muted">&copy; Monica Masae</small></p>
     </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div>
+        
+        </div>
+
+    </div>
+
 </div>
