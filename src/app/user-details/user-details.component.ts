@@ -39,6 +39,8 @@ export class UserDetailsComponent implements OnInit {
         console.log(this.username);
       },
     });
+
+    
   }
 
   ngOnInit(): void {}
