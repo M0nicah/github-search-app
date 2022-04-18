@@ -1,10 +1,10 @@
-<div class="container font flex">
+<div class="container font flex h-screen justify-center items-center ">
   <form
     [formGroup]="searchForm"
     (ngSubmit)="searchUser()"
-    class="justify-center items-center mx-auto mt-5"
+    class="bg-purple-100 p-5 rounded-xl hover:animate-pulse"
   >
-    <label for="Username" class="block font-bold mr-5 mt-3"
+    <label for="Username" class="block font-bold mr-5"
       >Enter Username:</label
     >
     <input
@@ -20,7 +20,7 @@
     <button
       type="submit"
       [disabled]="!this.searchForm.valid"
-      class="bg-purple-400 text-purple-700 p-2 rounded-md w-32 ml-3"
+      class="bg-purple-200 text-purple-700 p-2 rounded-md w-32 ml-3"
     >
       Get User
     </button>

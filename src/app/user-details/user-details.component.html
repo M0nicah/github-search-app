@@ -33,13 +33,14 @@
   </div>
 </div>
 
-<div class="bg-purple-300">
-    <div *ngFor="let repo of repos" class="col-md-8">
-        <div class="card">
-            <h4>{{repo.html_url}}</h4>
+<div class="container bg-purple-300">
+    <div>
+        <div *ngFor="let repo of repos" class="col-md-8">
+            <div class="card">
+                <h4>{{repo.name}}</h4>
+            </div>
+            <div class="card-footer">
+                <p>{{repo.created}}</p>
+            </div> 
         </div>
-        <div class="card-footer">
-            <p>{{repo.created}}</p>
-        </div> 
     </div>
-</div>
