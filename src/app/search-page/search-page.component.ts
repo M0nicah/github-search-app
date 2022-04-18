@@ -1,6 +1,6 @@
 
 import { GithubService } from './../services/github.service';
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Repos } from '../repos';
@@ -18,7 +18,7 @@ export class SearchPageComponent implements OnInit {
   // route: any;
 
   constructor(private route: Router, public GithubService: GithubService) {
-    this.GithubService.getRepo('',)
+    // this.GithubService.getRepo('',)
   }
 
   ngOnInit(): void {
@@ -31,7 +31,7 @@ export class SearchPageComponent implements OnInit {
     this.route.navigate([`user/${this.username}`]);
   }
   getRepo(){
-    this.username = this.searchForm.value.repos;
-    this.route.navigate([`user/${this.username}`])
+    this.repo = this.searchForm.value.repos;
+    this.route.navigate([`user/${this.repo}`])
   }
 }

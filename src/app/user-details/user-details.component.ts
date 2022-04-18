@@ -10,26 +10,24 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class UserDetailsComponent implements OnInit {
   @Input()
-  repo!: Repos;
-
+  // repo!: Repos;
   username!: string;
   UserDetails: any;
-  repos: any;
+  repos!: any;
 
   constructor(
     private active: ActivatedRoute,
     private GithubService: GithubService,
     private route: Router
   ) {
-
     this.active.params.subscribe((params) => {
       this.username = params['id'];
     });
     this.active.params.subscribe((params) => {
-      this.repo = params['repo'];
+      this.repos = params['id'];
     });
 
-    this.GithubService.getUser(this.username).subscribe({
+    this.GithubService.getUser(this.UserDetails).subscribe({
       complete: () => {
         console.log('data fetch successful!');
       },
@@ -39,30 +37,27 @@ export class UserDetailsComponent implements OnInit {
         this.route.navigate(['search']);
       },
       next: (data: any = []) => {
-        this.UserDetails = data;
-        console.log(this.UserDetails);
+        this.username = data;
+        console.log(this.username);
       },
     });
+
     this.GithubService.getRepo(this.repos).subscribe({
-      complete: () => {
-        console.log('data fetch successful!');
+      complete: (_data: any = []) => {
+        // this.repos = data;
+        // console.log(this.repos);
       },
       error: () => {
         //if the repo is wrong:
-        alert('User not found!');
+        alert('error: cant find repos');
         this.route.navigate(['search']);
       },
       next: (data: any = []) => {
-        this.UserDetails = data;
-        console.log(this.UserDetails);
+        this.repos = data;
+        console.log(this.repos);
       },
     });
-
-
   }
 
-  ngOnInit(): void {
-    // this.repos.getProfile()
-    // this.repos = this.UserDetails.repos
-  }
+  ngOnInit(): void {}
 }
