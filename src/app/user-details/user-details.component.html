@@ -1,5 +1,6 @@
+
 <div
-  class="card mb-3 mt-5 w-3/12 h-full rounded-xl shadow-2xl shadow-purple-100 justify-center items-center flex mx-auto"
+  class="card mb-3 mt-5 w-7/12 h-full rounded-xl shadow-2xl shadow-purple-100 justify-center items-center flex mx-auto"
 >
   <img
     src="{{ newUser.avatar }}"
@@ -11,10 +12,7 @@
       {{ newUser.name }}
     </h5>
     <p class="card-text py-1">{{ newUser.bio }}</p>
-    <p class="card-text py-1">
-      <!-- Public Repositories: {{ newUser.public_repos }} -->
-    </p>
-    <p class="card-text">{{ newUser.profile }}</p>
+    
     <p class="card-text py-1">
       Followers: {{ newUser.followers }} || Following:
       {{ newUser.following }}
@@ -35,18 +33,7 @@
     </p>
   </div>
 </div>
+<app-repositories onsubmit="getRepo($event)"></app-repositories>
 
-<div *ngFor="let repo of repos">
-    <div class="card">
-        <div class="card-header">
-        <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">
-            With supporting text below as a natural lead-in to additional content.
-          </p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-
-</div>
+  
 

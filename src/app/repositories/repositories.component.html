@@ -1,1 +1,16 @@
 <p>repositories works!</p>
+<!-- <app-user-details></app-user-details> -->
+
+<div *ngFor="let repo of repos">
+  <div class="card bg-purple-100">
+    <div class="card-header" {{repos.name}}>
+      <div class="card-body">
+        <h5 class="card-title">{{ repos.description }}</h5>
+        <p class="card-text">
+          With supporting text below as a natural lead-in to additional content.
+        </p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+</div>

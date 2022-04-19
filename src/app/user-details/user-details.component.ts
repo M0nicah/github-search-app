@@ -1,6 +1,7 @@
+import { GithubReposService } from './../service/github-repos.service';
 import { Repos } from './../repos';
 import { GithubService } from './../services/github.service';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Users } from '../users';
 
@@ -10,28 +11,39 @@ import { Users } from '../users';
   styleUrls: ['./user-details.component.css'],
 })
 export class UserDetailsComponent implements OnInit {
-  @Input()
-  // repo!: Repos;
+  @Output() onSubmitForm: EventEmitter<any> = new EventEmitter
+  
+
   username!: string;
   newUser!: Users;
-  repos!: any;
+  repos!: Repos;
   search: any;
-
+  getRepo!: Repos;
+  
+  
   constructor(
     private active: ActivatedRoute,
     private GithubService: GithubService,
+    private GithubReposService: GithubReposService,
     private route: Router
-  ) {
-    
-  }
+  ) {}
 
   ngOnInit(): void {
     this.active.queryParams.subscribe((params: any) => {
-      this.search = params.data
+      this.search = params.data;
       this.GithubService.getUser(this.search);
       this.newUser = this.GithubService.newUser;
       console.log(params.data);
-      console.log(this.search)
+      console.log(this.search);
     });
+
+    this.active.queryParams.subscribe((params: any)=>{
+      this.search = params.repos;
+      this.onSubmitForm.emit(this.search)
+      this.GithubReposService.getRepo(this.search);
+      this.getRepo = this.GithubReposService.repos
+      
+      
+    })
   }
 }

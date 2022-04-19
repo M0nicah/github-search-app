@@ -5,11 +5,13 @@ export class Repos {
     public name: string,
     public description: string,
     public login: string,
-    public avatar_url: string,
+    public visibility: string,
     public created_at: Date,
     public updated_at: Date,
     public html_url: string,
     public repos_url: string,
-    public live_link: any
+    public clone_url: string,
+    public homepage: any,
+    public language: string
   ) {}
 }
