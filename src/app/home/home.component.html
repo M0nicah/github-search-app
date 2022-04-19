@@ -1,4 +1,19 @@
 <div class="container p-5">
-  <h1 class="text-center font-bold text-purple-900 text-5xl justify-center items-center flex ">{{ title }} 🔍</h1>
+  <h1
+    class="text-center font-bold text-purple-900 text-5xl justify-center items-center flex"
+  >
+    {{ title }} 🔍
+  </h1>
 </div>
-<div class="bg-purple-500 p-5 w-24 h-24 animate-spin justify-center items-center flex mx-auto"></div>
+<div
+  class="bg-purple-700 p-5 w-24 h-24 animate-bounce hover:animate-spin rounded-lg justify-center items-center flex mx-auto"
+></div>
+
+<div class="container justify-center items-center mx-auto flex mt-5">
+  <button
+    class="text-purple-500 p-2 w-48 border-2 border-purple-500 rounded transition ease-in-out delay-150 hover:-translate-y-3 hover:scale-110 hover:bg-purple-500 hover:text-white duration-200"
+    [routerLink]="['search']"
+  >
+    Get Started
+  </button>
+</div>
