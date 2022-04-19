@@ -22,13 +22,10 @@ export class SearchPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.searchForm = new FormGroup({
-      username: new FormControl(null, [Validators.required]),
-    });
   }
   searchUser() {
-    this.username = this.searchForm.value.username;
     this.route.navigate([`user/${this.username}`],{queryParams:{data: this.username}});
+    
   }
   // getRepo(){
   //   this.repo = this.searchForm.value.repos;

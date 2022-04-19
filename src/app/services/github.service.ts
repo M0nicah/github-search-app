@@ -1,6 +1,4 @@
 import { Users } from './../users';
-
-
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
@@ -20,6 +18,7 @@ export class GithubService {
   }
 
   getUser(username: string) {
+    console.log(username)
     let promise = new Promise((resolve, reject) => {
       this.http
         .get<any>(

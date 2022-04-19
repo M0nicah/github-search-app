@@ -22,23 +22,7 @@ export class UserDetailsComponent implements OnInit {
     private GithubService: GithubService,
     private route: Router
   ) {
-    // this.active.params.subscribe((params) => {
-    //   this.username = params['id'];
-    // });
-    // this.GithubService['getUser'](this.UserDetails).subscribe({
-    //   complete: () => {
-    //     console.log('data fetch successful!');
-    //   },
-    //   error: () => {
-    //     //if the username is wrong:
-    //     alert('User not found!');
-    //     this.route.navigate(['search']);
-    //   },
-    //   next: (data: any = []) => {
-    //     this.username = data;
-    //     console.log(this.username);
-    //   },
-    // });
+    
   }
 
   ngOnInit(): void {
@@ -46,6 +30,8 @@ export class UserDetailsComponent implements OnInit {
       this.search = params.data
       this.GithubService.getUser(this.search);
       this.newUser = this.GithubService.newUser;
+      console.log(params.data);
+      console.log(this.search)
     });
   }
 }
