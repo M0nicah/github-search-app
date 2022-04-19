@@ -2,13 +2,14 @@ export class Repos {
   emit: any;
 
   constructor(
-    public bio: string,
-    public public_repos: string,
+    public name: string,
+    public description: string,
     public login: string,
     public avatar_url: string,
-    public created_at: string,
-    public updated_at: string,
+    public created_at: Date,
+    public updated_at: Date,
     public html_url: string,
-    public repos_url: string
+    public repos_url: string,
+    public live_link: any
   ) {}
 }

@@ -9,6 +9,7 @@ import { SearchPageComponent } from './search-page/search-page.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RepositoriesComponent } from './repositories/repositories.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     SearchPageComponent,
     UserDetailsComponent,
+    RepositoriesComponent,
 
   ],
   imports: [
