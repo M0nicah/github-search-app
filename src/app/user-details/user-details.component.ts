@@ -31,19 +31,13 @@ export class UserDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.active.queryParams.subscribe((params: any) => {
       this.search = params.data;
+      this.onSubmitForm.emit(this.search)
       this.GithubService.getUser(this.search);
       this.newUser = this.GithubService.newUser;
-      console.log(params.data);
-      console.log(this.search);
+      
+      // console.log(params.data);
+      // console.log(this.search);
     });
 
-    this.active.queryParams.subscribe((params: any)=>{
-      this.search = params.repos;
-      this.onSubmitForm.emit(this.search)
-      this.GithubReposService.getRepo(this.search);
-      this.getRepo = this.GithubReposService.repos
-      
-      
-    })
   }
 }

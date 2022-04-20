@@ -9,7 +9,7 @@ export class Repos {
     public created_at: Date,
     public updated_at: Date,
     public html_url: string,
-    public repos_url: string,
+    public svn_url: string,
     public clone_url: string,
     public homepage: any,
     public language: string

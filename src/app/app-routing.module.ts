@@ -2,8 +2,8 @@ import { HomeComponent } from './home/home.component';
 import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SearchPageComponent } from './search-page/search-page.component';
-import { UserDetailsComponent } from './user-details/user-details.component';
 import { Repos } from './repos';
+import { RepositoriesComponent } from './repositories/repositories.component';
 
 const routes: Routes = [
   {
@@ -16,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: 'user/:id',
-    component: UserDetailsComponent
+    component: RepositoriesComponent
   },
  
 ];

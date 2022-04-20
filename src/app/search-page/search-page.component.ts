@@ -1,4 +1,5 @@
-
+import { Repos } from './../repos';
+import { GithubReposService } from './../service/github-repos.service';
 import { GithubService } from './../services/github.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -9,15 +10,17 @@ import { Users } from '../users'
   selector: 'app-search-page',
   templateUrl: './search-page.component.html',
   styleUrls: ['./search-page.component.css'],
-  providers: [GithubService],
+  providers: [GithubService, GithubReposService],
 })
 export class SearchPageComponent implements OnInit {
   searchForm!: FormGroup;
   username!: any;
-  repo!: any;
+  repos!: any;
+  reposArr: any[] = [];
+  search!: any;
   // route: any;
 
-  constructor(private route: Router, public GithubService: GithubService) {
+  constructor(private route: Router, public GithubService: GithubService, public GithubReposService: GithubReposService) {
    
   }
 
@@ -27,8 +30,9 @@ export class SearchPageComponent implements OnInit {
     this.route.navigate([`user/${this.username}`],{queryParams:{data: this.username}});
     
   }
-  // getRepo(){
-  //   this.repo = this.searchForm.value.repos;
-  //   this.route.navigate([`user/${this.repo}`],{queryParams: {data: this.username }})
-  // }
+  getRepo(){
+    this.repos = this.searchForm.value.search;
+    // this.route.navigate([`user/${this.username}/repos`],{queryParams: {data: this.username }})
+  }
 }
+

@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
-
 @Injectable({
   providedIn: 'root',
 })
@@ -12,17 +11,17 @@ export class GithubService {
   url: string = 'https://api.github.com/users/';
   username!: string;
   newUser: Users;
+  search!: string;
 
   constructor(private http: HttpClient) {
     this.newUser = new Users('', '', '', 0, 0, '', '', '', '', '', new Date());
   }
-
-  getUser(username: string) {
-    console.log(username)
+  getUser(search: string) {
+    // console.log(search)
     let promise = new Promise((resolve, reject) => {
       this.http
         .get<any>(
-          `${this.url}${username}?access_token'=${environment.GITHUB_API_KEY}`
+          `${this.url}${search}?access_token'=${environment.GITHUB_API_KEY}`
         )
         .toPromise()
         .then(
@@ -42,6 +41,7 @@ export class GithubService {
               (this.newUser.created_at = response.created_at)
             );
             resolve(response);
+            // console.log(`${this.url}${search}?access_token'=${environment.GITHUB_API_KEY}`)
           },
           (error: any) => {
             reject(error);

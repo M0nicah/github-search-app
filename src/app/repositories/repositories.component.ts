@@ -1,6 +1,8 @@
+import { SearchPageComponent } from './../search-page/search-page.component';
 import { GithubReposService } from './../service/github-repos.service';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Repos } from '../repos';
 
 @Component({
   selector: 'app-repositories',
@@ -15,8 +17,10 @@ export class RepositoriesComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  newUser(search: any) {
+  collectRepos(search: any) {
     this.GithubReposService.getRepo(search);
+    console.log(search);
     this.repos = this.GithubReposService.reposArr;
+    
   }
 }

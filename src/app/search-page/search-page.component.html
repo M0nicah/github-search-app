@@ -2,7 +2,7 @@
   <form
   #searchForm = "ngForm"
     (ngSubmit)="searchUser()"
-    class="bg-purple-100 p-5 rounded-xl"
+    class="bg-gradient-to-r from-pink-600 to bg-purple-400 p-5 rounded-xl"
   >
     <label for="Username" class="block font-bold mr-5"
       >Enter Username:</label
@@ -24,5 +24,13 @@
     >
       Get User
     </button>
+    <!-- <button
+      type="submit"
+      [disabled]="!this.searchForm.valid"
+      class="bg-purple-200 text-purple-700 p-2 rounded-md w-32 ml-3"
+      (ngSubmit)="getRepo()"
+    >
+      Get Repo
+    </button> -->
   </form>
 </div>
